@@ -28,7 +28,11 @@ p {
     margin: 0;
 }
 
-
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
 
 
@@ -59,8 +63,9 @@ p {
 .card-container {
     padding: 2rem;
     display: grid;
-    grid-template-columns: minmax(40rem, 1fr) minmax(40rem, 1fr) minmax(40rem, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 4rem;
+    grid-auto-flow: column dense;
 }
 
 /*-------------------- Card-container-End ----------------------*/
@@ -84,6 +89,8 @@ p {
     border-radius: 0.5rem;
     background-color: white;
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.05);
+
+    min-width: 40rem;
 }
     .card__inner {
         padding: var(--card-padding);
@@ -91,9 +98,14 @@ p {
 
     .card__header {
         margin-bottom: var(--card-padding);
+        text-align: center;
     }
 
     /*----------- Card Typo -----------*/
+
+    .card__logo {
+        margin: 0 auto;
+    }
 
     .card__title {
         font-weight: normal;
@@ -113,6 +125,10 @@ p {
             margin-bottom: 2em;
         }
 
+    .card__address {
+        margin-top: 1em;
+        font-style: italic;
+    }
 
     .card__date {
         margin-bottom: 1em;
@@ -167,7 +183,7 @@ p {
         border-bottom-style: solid;
     }
         .meals__item:first-child {
-            padding-top: 0;
+            border-top-style: solid;
         }
         .meals__item:last-child {
             padding-bottom: 0;
@@ -181,20 +197,23 @@ p {
             border-width: 0.3rem;
             border-style: solid;
         }
-        .meals__item.is-marked:after {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            content: "📅";
-            font-size: 2em;
-            line-height: 1;
-        }
+        /*
+            .meals__item.is-marked:after {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                content: "📅";
+                font-size: 2em;
+                line-height: 1;
+            }
+        */
 
 
-    .meals__date {
+    .meals__day {
         font-size: 0.8em;
         font-weight: bold;
         text-transform: uppercase;
+        letter-spacing: 0.1em;
         margin-bottom: 1em;
     }
 
@@ -207,7 +226,9 @@ p {
 
     .meals__cost {
         font-size: 1.4em;
+        text-align: right;
         color: var(--card-title-color);
+        min-width: 7rem;
     }
 
 /*-------------------- Meal-End ----------------------*/
@@ -248,21 +269,64 @@ p {
     .icon:after {
         display: inline;
         font-size: 1em;
+        line-height: 1;
+        color: currentColor;
         vertical-align: middle;
+        margin-left: 0.3em;
     }
 
 .icon--correct:after {
     content: "✓";
-    font-size: 1.5em;
 }
 
 .icon--wrong:after {
-    content: "❌";
+    content: "×";
+    font-size: 1.4em;
+    vertical-align: baseline;
 }
 
 .icon--location:after {
     content: "⚑";
-    font-size: 1.8em;
+    font-size: 1.6em;
 }
 
 /*-------------------- Icons End ----------------------*/
+
+
+
+
+
+
+
+
+/*-------------------- Alerts ----------------------*/
+
+.alert {
+    display: block;
+    padding: 0.8rem;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    background-color: grey;
+}
+
+    .alert__title {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .alert--correct {
+        background-color: #65e065;
+    }
+    .alert--wrong {
+        background-color: #e03a3a;
+    }
+    .alert--notice {
+        color: black;
+        background-color: #fff25a;
+    }
+
+/*-------------------- Alerts End ----------------------*/
+
