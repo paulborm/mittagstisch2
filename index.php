@@ -1,10 +1,19 @@
 <?php 
+    require_once("logic.php");
 
+    // Get Data from Data File
     $str    = file_get_contents('data/mittagstische.json');
     $json   = json_decode($str, true); // decode the JSON into an associative array
 
-
     $restaurants = $json["restaurants"];
+
+
+    // Get the first day of the current week
+    $firstDayOfWeek = firstDayOf('week');
+
+    // Get the last day of the current week
+    $lastDayOfWeek = lastDayOf('week');
+
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +35,12 @@
             <?php echo date("l n. M"); ?>
         </div>
 
-        <?php foreach($restaurants as $restaurant) : ?>
-            Verfügbare Restaurants: <?php echo $restaurant["name"]; ?>
-        <?php endforeach; ?>
-
+        <p>Verfügbare Restaurants: </p>
+        <ul>
+            <?php foreach($restaurants as $restaurant) : ?>
+                <?php echo "<li>" . $restaurant["name"] . "</li>"; ?>
+            <?php endforeach; ?>
+        </ul>
 
         <div class="card-container">
 
@@ -40,9 +51,14 @@
                 <div class="card__inner">
 
                     <div class="card__header">
+
+                        <?php if (!$restaurant["logo"]) : ?>
                         <h3 class="card__title card__title--1 inline">
                             <?php echo $restaurant["name"]; ?>    
                         </h3>
+                        <?php else : ?>
+                        <img class="card__logo" src="<?php echo $restaurant['logo']; ?>" />
+                        <?php endif; ?>
 
                         <?php if ($restaurant["standort"]) : ?>
                         <div class="card__address inline icon icon--location">
@@ -52,43 +68,80 @@
 
                     </div>
 
-                    <?php foreach($restaurant["datum"] as $datum) : ?>
-                        <p>Angebote von: <span class="is-correct icon icon--correct"><?php echo $datum["von"]; ?> - <?php echo $datum["bis"]; ?></span></p>
-                    <?php endforeach; ?>
 
 
-                    <!-- Meals -->
-                    <div class="meals">
+                    <?php 
+                    // Alert nur einblednden wenn es auch Gerichte gibt
 
-                        <?php foreach($restaurant["tage"] as $tag) : ?>
-                        <!-- Meals Item -->
-                        <div class="meals__item <?php if($tag['marked']) : ?>is-marked<?php endif; ?>">
-                            <div class="meals__date">
-                                <?php echo $tag["name"] . ", " . $tag["datum"]; ?>
+                    if($restaurant["tage"]) : ?>
+
+                        <?php foreach($restaurant["datum"] as $datum) : ?>
+
+                            <?php if($datum["von"] == $firstDayOfWeek && $datum["bis"] == $lastDayOfWeek) : ?>
+                                <div class="alert alert--correct">
+                                    <span class="alert__title">Alles aktuell</span>
+                                    <span class="icon icon--correct">
+                            <?php else : ?>
+                                <div class="alert alert--wrong">
+                                    <span class="alert__title">Nicht aktuell</span>
+                            <?php endif; ?>
+                                    <?php echo $datum["von"]; ?> - <?php echo $datum["bis"]; ?>
+                                </span>
                             </div>
 
+                        <?php endforeach; ?>
 
-                            <?php foreach($tag["gerichte"] as $gericht) : ?>
-                            <!-- Meals Item-Row -->
-                            <div class="meals__item-row">
-                                <div class="meals__col">
-                                    <div class="meals__title"><?php echo $gericht["name"]; ?></div>
-                                    <div class="meals__text"><?php echo $gericht["beschreibung"]; ?></div>
+                    <?php else : ?>
+                        <div class="alert alert--notice">Nichts los...</div>
+                    <?php endif; ?>
+
+
+
+                    <?php 
+                    // Wenn es Gerichte gibt, werden diese hier angezeigt
+
+                    if($restaurant["tage"]) : ?>
+
+                        <!-- Meals -->
+                        <div class="meals">
+
+
+                            <?php foreach($restaurant["tage"] as $tag) : ?>
+                            <!-- Meals Item -->
+                            <div class="meals__item <?php if($tag['marked']) : ?>is-marked<?php endif; ?>">
+                                <div class="meals__day">
+                                    <?php echo $tag["name"] /*. ", " . $tag["datum"]*/; ?>
                                 </div>
-                                <div class="meals__col">
-                                    <div class="meals__cost"><?php echo $gericht["preis"] . " €"; ?></div>
+
+
+                                <?php foreach($tag["gerichte"] as $gericht) : ?>
+                                <!-- Meals Item-Row -->
+                                <div class="meals__item-row">
+                                    <div class="meals__col">
+                                        <div class="meals__title"><?php echo $gericht["name"]; ?></div>
+
+                                        <?php if ($gericht["beschreibung"]) : ?>
+                                        <div class="meals__text"><?php echo $gericht["beschreibung"]; ?></div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="meals__col">
+                                        <div class="meals__cost"><?php echo $gericht["preis"] . " €"; ?></div>
+                                    </div>
                                 </div>
+                                <!-- Meals Item-Row End -->
+                                <?php endforeach; ?>
+
+
                             </div>
-                            <!-- Meals Item-Row End -->
+                            <!-- Meals Item End -->
                             <?php endforeach; ?>
 
 
                         </div>
-                        <!-- Meals Item End -->
-                        <?php endforeach; ?>
+                        <!-- Meals End -->
 
-                    </div>
-                    <!-- Meals End -->
+                    <?php endif; ?>
+
 
 
                 </div>
