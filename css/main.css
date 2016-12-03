@@ -1,0 +1,268 @@
+/*-------------------- Variables ----------------------*/
+
+:root {
+    --border-color: #e6e6e6;
+}
+
+/*-------------------- Variables-End ----------------------*/
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    font-family: sans-serif;
+    background-color: #ebebeb;
+}
+
+p {
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+/*-------------------- Card-container ----------------------*/
+
+.top-bar {
+    padding: 0.5rem 1.5rem;
+    background-color: black;
+    font-size: 1.4rem;
+    text-align: right;
+    color: white;
+}
+
+/*-------------------- Card-container ----------------------*/
+
+
+
+
+
+
+
+
+/*-------------------- Card-container ----------------------*/
+
+.card-container {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: minmax(40rem, 1fr) minmax(40rem, 1fr) minmax(40rem, 1fr);
+    grid-column-gap: 4rem;
+}
+
+/*-------------------- Card-container-End ----------------------*/
+
+
+
+
+
+
+/*-------------------- Card ----------------------*/
+
+.card {
+    --card-padding: 2em;
+    --card-font-color: #a7a7a7;
+    --card-title-color: #333333;
+
+
+    font-size: 1.4rem;
+    color: var(--card-font-color);
+    border-bottom: 0.2rem solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.05);
+}
+    .card__inner {
+        padding: var(--card-padding);
+    }
+
+    .card__header {
+        margin-bottom: var(--card-padding);
+    }
+
+    /*----------- Card Typo -----------*/
+
+    .card__title {
+        font-weight: normal;
+        color: var(--card-title-color);
+        margin: 0;
+    }    
+        .card__title--1 {
+            font-size: 2.8em;
+        }
+        
+        .card__title--2 {
+            font-size: 1.4em;
+        }
+
+        .card__title--3 {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+
+
+    .card__date {
+        margin-bottom: 1em;
+        text-transform: uppercase;
+    }
+
+    .card__cost {
+        font-size: 1.4em;
+        color: var(--card-title-color);
+    }
+
+    .card__footer {
+        font-size: 0.8em;
+        text-align: right;
+        padding: calc(var(--card-padding) / 2) var(--card-padding);
+        border-top: 0.1rem solid var(--border-color);
+    }
+
+
+/*-------------------- Cards-End ----------------------*/
+
+
+
+
+
+
+
+/*-------------------- Meal ----------------------*/
+
+.meals {
+    --meals-padding: 1em;
+
+    margin-top: calc(var(--meals-padding) * 2);
+}
+
+    .meals__item-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: var(--meals-padding);
+    }
+        .meals__item-row:last-child {
+            margin-bottom: 0;
+        }
+
+
+    .meals__item {
+        padding-top: calc(var(--meals-padding) * 2);
+        padding-bottom: calc(var(--meals-padding) * 2);
+
+        border-color: var(--border-color);
+        border-width: 0.1rem;
+        border-bottom-style: solid;
+    }
+        .meals__item:first-child {
+            padding-top: 0;
+        }
+        .meals__item:last-child {
+            padding-bottom: 0;
+            border-bottom-style: none;
+        }
+
+        .meals__item.is-marked {
+            position: relative;
+            padding: calc(var(--meals-padding) * 2);
+            background-color: #f5f5f5;
+            border-width: 0.3rem;
+            border-style: solid;
+        }
+        .meals__item.is-marked:after {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            content: "📅";
+            font-size: 2em;
+            line-height: 1;
+        }
+
+
+    .meals__date {
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 1em;
+    }
+
+    .meals__title {
+        font-weight: normal;
+        color: var(--card-title-color);
+        margin: 0;
+        font-size: 1.4em;
+    }
+
+    .meals__cost {
+        font-size: 1.4em;
+        color: var(--card-title-color);
+    }
+
+/*-------------------- Meal-End ----------------------*/
+
+
+
+
+
+
+
+
+
+/*-------------------- helper ----------------------*/
+.inline {
+    display: inline-block;
+}
+
+.is-correct {
+    color: #65e065;
+}
+
+.is-wrong {
+    color: #e03a3a;
+}
+/*-------------------- helper-End ----------------------*/
+
+
+
+
+
+
+
+/*-------------------- Icons ----------------------*/
+
+.icon {
+    display: inline-block;
+}
+    .icon:after {
+        display: inline;
+        font-size: 1em;
+        vertical-align: middle;
+    }
+
+.icon--correct:after {
+    content: "✓";
+    font-size: 1.5em;
+}
+
+.icon--wrong:after {
+    content: "❌";
+}
+
+.icon--location:after {
+    content: "⚑";
+    font-size: 1.8em;
+}
+
+/*-------------------- Icons End ----------------------*/

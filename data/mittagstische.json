@@ -1,0 +1,49 @@
+{
+    "restaurants": [
+        {
+            "name": "Scheu und Weber",
+            "standort": "Owen, Kirchheimerstraße 88",
+            "datum": [
+                {
+                    "von": "05.12.2016",
+                    "bis": "09.12.2016"
+                }
+            ],
+
+            "tage": [
+                {
+                    "name": "Montag",
+                    "datum": "05.12.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Linsen mit Spätzle",
+                            "beschreibung": "Linsen und dazu gibt es Spätzle",
+                            "preis": "4,90"
+                        },
+                        {
+                            "name": "Linsen mit Spätzle",
+                            "beschreibung": "Linsen und dazu gibt es Spätzle",
+                            "preis": "4,90"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Dienstag",
+                    "datum": "06.12.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Linsen mit Spätzle",
+                            "beschreibung": "Linsen und dazu gibt es Spätzle",
+                            "preis": "4,90"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
