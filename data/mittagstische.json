@@ -1,8 +1,10 @@
 {
     "restaurants": [
         {
-            "name": "Scheu und Weber",
+            "name": "Scheu & Weber",
+            "logo": "images/logo/scheu-weber-logo.gif",
             "standort": "Owen, Kirchheimerstraße 88",
+            "url": "www.scheu-weber.de",
             "datum": [
                 {
                     "von": "05.12.2016",
@@ -18,13 +20,8 @@
 
                     "gerichte": [
                         {
-                            "name": "Linsen mit Spätzle",
-                            "beschreibung": "Linsen und dazu gibt es Spätzle",
-                            "preis": "4,90"
-                        },
-                        {
-                            "name": "Linsen mit Spätzle",
-                            "beschreibung": "Linsen und dazu gibt es Spätzle",
+                            "name": "Gaisburger Marsch",
+                            "beschreibung": "",
                             "preis": "4,90"
                         }
                     ]
@@ -33,16 +30,186 @@
                 {
                     "name": "Dienstag",
                     "datum": "06.12.2016",
+                    "marked": true,
+
+                    "gerichte": [
+                        {
+                            "name": "Schinkennudeln",
+                            "beschreibung": "Mit Tomatensoße und buntem Eisbergsalat",
+                            "preis": "4,90"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Mittwoch",
+                    "datum": "07.12.2016",
                     "marked": false,
 
                     "gerichte": [
                         {
-                            "name": "Linsen mit Spätzle",
-                            "beschreibung": "Linsen und dazu gibt es Spätzle",
+                            "name": "Cordon-bleu",
+                            "beschreibung": "Mit wilden Kartoffeln und Karottensalat",
+                            "preis": "4,90"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Donnerstag",
+                    "datum": "08.12.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Kalbsgulasch",
+                            "beschreibung": "Mit Reis und Vitalsalat",
+                            "preis": "4,90"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Freitag",
+                    "datum": "09.12.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Szegedinder Gulasch",
+                            "beschreibung": "Mit Spätzle",
                             "preis": "4,90"
                         }
                     ]
                 }
+            ]
+        },
+
+        
+        {
+            "name": "Sulzburghof",
+            "logo": "images/logo/sulzburhof-logo.png",
+            "standort": "Unterlenningen, Max-Leuze-Straße 10-16",
+            "url": "www.sulzburghof.de",
+            "datum": [
+                {
+                    "von": "28.11.2016",
+                    "bis": "04.12.2016"
+                }
+            ],
+
+            "tage": [
+                {
+                    "name": "Dienstag",
+                    "datum": "29.11.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Gefüllte Paprika",
+                            "beschreibung": "In Tomatensoße und mit Reis",
+                            "preis": "6,90"
+                        },
+                        {
+                            "name": "Mediterrane Nudelpfanne",
+                            "beschreibung": "Mit Oliven und Tomaten",
+                            "preis": "6,50"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Mittwoch",
+                    "datum": "30.11.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Szegediner Gulasch",
+                            "beschreibung": "Mit Schupfnudeln",
+                            "preis": "7,30"
+                        },
+                        {
+                            "name": "Käsetortellini",
+                            "beschreibung": "Mit Kräutersoße",
+                            "preis": "6,50"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Donnerstag",
+                    "datum": "01.12.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Schnitzel \"Pariser Art\"",
+                            "beschreibung": "Mit Tomatenspaghetti",
+                            "preis": "7,30"
+                        },
+                        {
+                            "name": "Ofenschlupfer",
+                            "beschreibung": "Mit Vanillesoße",
+                            "preis": "5,90"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Freitag",
+                    "datum": "02.12.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Meeresfrüchte",
+                            "beschreibung": "In Weißweinsoße auf Bandnudeln",
+                            "preis": "7,30"
+                        },
+                        {
+                            "name": "Gemüselasagne",
+                            "beschreibung": "Mit Käse überbacken",
+                            "preis": "6,90"
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Samstag",
+                    "datum": "03.12.2016",
+                    "marked": false,
+
+                    "gerichte": [
+                        {
+                            "name": "Chilie con carne (vom eigenen Rind)",
+                            "beschreibung": "Mit frischem Bauernbrot",
+                            "preis": "6,90"
+                        },
+                        {
+                            "name": "Spaghetti",
+                            "beschreibung": "Mit Gemüsebolognese und Parmesan",
+                            "preis": "6,50"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        
+        {
+            "name": "Zum Adler",
+            "logo": "",
+            "standort": "Owen, Kirchheimerstraße 41",
+            "url": "www.zum-adler-owen.de",
+            "datum": [
+                {
+                    "von": "28.11.2016",
+                    "bis": "04.12.2016"
+                }
+            ],
+
+            "tage": [
             ]
         }
     ]
